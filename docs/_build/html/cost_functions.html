@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cost_functions module &#8212; Neural Network  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="initializers module" href="initializers.html" />
+    <link rel="prev" title="activation_functions module" href="activation_functions.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-cost_functions">
+<span id="cost-functions-module"></span><h1>cost_functions module<a class="headerlink" href="#module-cost_functions" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="cost_functions.binary_cross_entropy">
+<code class="sig-prename descclassname">cost_functions.</code><code class="sig-name descname">binary_cross_entropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cost_functions.binary_cross_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements binary-cross-entropy cost.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>AL: probability vector of label predictions.
+Y: true labels vector.</p>
+</dd>
+<dt>Returns:</dt><dd><p>the total binary-cross-entropy cost.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cost_functions.categorical_cross_entropy">
+<code class="sig-prename descclassname">cost_functions.</code><code class="sig-name descname">categorical_cross_entropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cost_functions.categorical_cross_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements categorical-cross-entropy cost.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>AL: probability vector of label predictions.
+Y: true labels vector.</p>
+</dd>
+<dt>Returns:</dt><dd><p>the total categorical-cross-entropy cost.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cost_functions.compute_cost">
+<code class="sig-prename descclassname">cost_functions.</code><code class="sig-name descname">compute_cost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cost_functions.compute_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the cost of a specified type.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>AL: probability vector of label predictions.
+Y: true labels vector.
+name: type of the cost to compute.</p>
+</dd>
+<dt>Returns:</dt><dd><p>the cost of the specified type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cost_functions.compute_reg_cost">
+<code class="sig-prename descclassname">cost_functions.</code><code class="sig-name descname">compute_reg_cost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">L2_regularization_lambdas</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cost_functions.compute_reg_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the L2 regularization cost.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.
+L2_regularization_lambdas: list of the lambdas for each layer, None if no reg is applied to this layer.</p>
+</dd>
+<dt>Returns:</dt><dd><p>the total regularization cost.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cost_functions.grad_binary_cross_entropy">
+<code class="sig-prename descclassname">cost_functions.</code><code class="sig-name descname">grad_binary_cross_entropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cost_functions.grad_binary_cross_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements the derivative of binary-cross-entropy cost.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>AL: probability vector of label predictions.
+Y: true labels vector.</p>
+</dd>
+<dt>Returns:</dt><dd><p>the derivative of binary-cross-entropy cost.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cost_functions.grad_categorical_cross_entropy">
+<code class="sig-prename descclassname">cost_functions.</code><code class="sig-name descname">grad_categorical_cross_entropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cost_functions.grad_categorical_cross_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements the derivative of categorical-cross-entropy cost.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>AL: probability vector of label predictions.
+Y: true labels vector.</p>
+</dd>
+<dt>Returns:</dt><dd><p>the derivative of categorical-cross-entropy cost.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cost_functions.grad_cost">
+<code class="sig-prename descclassname">cost_functions.</code><code class="sig-name descname">grad_cost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cost_functions.grad_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the derivative of a specified cost.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>AL: probability vector of label predictions.
+Y: true labels vector.
+name: type of the cost to compute it’s derivative.</p>
+</dd>
+<dt>Returns:</dt><dd><p>the derivative of the specified cost.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cost_functions.mean_squared_error">
+<code class="sig-prename descclassname">cost_functions.</code><code class="sig-name descname">mean_squared_error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cost_functions.mean_squared_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="cost_functions.mean_squared_error_backward">
+<code class="sig-prename descclassname">cost_functions.</code><code class="sig-name descname">mean_squared_error_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cost_functions.mean_squared_error_backward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Neural Network</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nn</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="activation_functions.html">activation_functions module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">cost_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="initializers.html">initializers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">metrics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neural_network.html">neural_network module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizations.html">optimizations module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">preprocessing module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">nn</a><ul>
+      <li>Previous: <a href="activation_functions.html" title="previous chapter">activation_functions module</a></li>
+      <li>Next: <a href="initializers.html" title="next chapter">initializers module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Mohamed Medhat.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/cost_functions.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
