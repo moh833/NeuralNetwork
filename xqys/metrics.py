@@ -69,18 +69,18 @@ def compute_score(y_act, y_pred, name):
     '''
     if name =='accuracy':
         return accuracy_score(y_act, y_pred)
-    elif name == 'mean_absolute_error':
+    elif name == 'mean-absolute-error':
         return mean_absolute_error(y_act, y_pred)
-    elif name == 'mean_squared_error':
-        mean_squared_error(y_act, y_pred)
-    elif name == 'root_mean_square_error':
-        root_mean_square_error(y_act, y_pred)
+    elif name == 'mean-squared-error':
+        return mean_squared_error(y_act, y_pred)
+    elif name == 'root-mean-square-error':
+        return root_mean_square_error(y_act, y_pred)
     elif name == 'precision':
-        precision_score(y_act, y_pred)
+        return precision_score(y_act, y_pred)
     elif name == 'recall':
-        recall_score(y_act, y_pred)
-    elif name == 'f1':
-        f1_score(y_act, y_pred)
+        return recall_score(y_act, y_pred)
+    elif name == 'f1-score':
+        return f1_score(y_act, y_pred)
 
 def compute_tp_tn_fp_fn(y_act, y_pred):
     '''Computes - True Positive (TP), True Negative (TN), False Positive (FP), False Negative (FN).

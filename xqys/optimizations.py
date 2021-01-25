@@ -38,8 +38,6 @@ class Momentum:
         self.learning_rate = learning_rate
         self.beta = beta
 
-        self.v = {}
-
 
     def initialize(self, parameters):
         '''Initializes the velocity.
@@ -47,9 +45,8 @@ class Momentum:
         Args:
             parameters: dictionary of the parameters.
         '''
-        
-        L = len(parameters) // 2
         self.v = {}
+        L = len(parameters) // 2
         
         for l in range(L):
             self.v["dW" + str(l + 1)] = np.zeros_like(parameters["W" + str(l+1)])
@@ -82,8 +79,6 @@ class Momentum:
 
 
 
-
-
 class Adam:
     '''Optimizer that implements the Adam algorithm.
     '''
@@ -93,8 +88,6 @@ class Adam:
         self.beta2 = beta2
         self.epsilon = epsilon
 
-        self.v = {}
-        self.s = {}
 
     def initialize(self, parameters) :
         '''Initializes the v and s for Adam optimizer.
@@ -102,7 +95,8 @@ class Adam:
         Args:
             parameters: dictionary of the parameters.
         '''
-        
+        self.v = {}
+        self.s = {}
         L = len(parameters) // 2 
         self.t = 0
         
@@ -150,5 +144,95 @@ class Adam:
 
             parameters["W" + str(l + 1)] = parameters["W" + str(l + 1)] - self.learning_rate * v_corrected["dW" + str(l + 1)] / np.sqrt(s_corrected["dW" + str(l + 1)] + self.epsilon)
             parameters["b" + str(l + 1)] = parameters["b" + str(l + 1)] - self.learning_rate * v_corrected["db" + str(l + 1)] / np.sqrt(s_corrected["db" + str(l + 1)] + self.epsilon)
+
+        return parameters
+
+
+
+class RMSprop:
+    '''RMSprop optimizer.
+    '''
+    def __init__(self, learning_rate, beta=0.9, eps=1e-6):
+        self.learning_rate = learning_rate
+        self.beta = beta
+        self.eps = eps
+
+
+    def initialize(self, parameters):
+        '''Initializes the velocity.
+
+        Args:
+            parameters: dictionary of the parameters.
+        '''
+        self.v = {}
+        L = len(parameters) // 2 
+        
+        for l in range(L):
+            self.v["dW" + str(l + 1)] = np.zeros_like(parameters["W" + str(l + 1)])
+            self.v["db" + str(l + 1)] = np.zeros_like(parameters["b" + str(l + 1)])
+
+
+
+    def update_parameters (self, parameters, grads):
+        '''Updates parameters using RMSprop.
+
+        Args:
+            parameters: dictionary of the parameters.
+            grads: dictionary contains the gradients of the parameters.
+        Returns:
+            dictionary of the updated parameters.
+        '''
+        L = len(parameters) // 2
+        
+        for l in range(L):
+
+            self.v["dW" + str(l+1)] = self.beta * self.v["dW" + str(l+1)] + (1-self.beta) * grads['dW' + str(l+1)]**2 
+            self.v["db" + str(l+1)] = self.beta * self.v["db" + str(l+1)] + (1-self.beta) * grads['db' + str(l+1)]**2 
+
+            parameters["W" + str(l+1)] -= self.learning_rate * grads['dW' + str(l+1)] / (np.sqrt(self.v["dW" + str(l+1)]) + self.eps)
+            parameters["b" + str(l+1)] -= self.learning_rate * grads['db' + str(l+1)] / (np.sqrt(self.v["db" + str(l+1)]) + self.eps)
+
+        return parameters
+
+
+class Adagrad:
+    '''Adagrad optimizer.
+    '''
+    def __init__(self, learning_rate, eps=1e-6):
+        self.learning_rate = learning_rate
+        self.eps = eps
+
+    def initalization (self, parameters):
+        '''Initializes the accumulator.
+
+        Args:
+            parameters: dictionary of the parameters.
+        '''
+        L = len(parameters) // 2 
+        self.Acc = {}
+
+        for l in range(L):
+            self.Acc["dW" + str(l+1)] = np.zeros((parameters["W" + str(l+1)].shape[0], parameters["W" + str(l+1)].shape[1]))
+            self.Acc["db" + str(l+1)] = np.zeros((parameters["b" + str(l+1)].shape[0], parameters["b" + str(l+1)].shape[1]))
+        
+
+    def update_parameters(self,  parameters, grads):
+        '''Updates parameters using Adagrad.
+
+        Args:
+            parameters: dictionary of the parameters.
+            grads: dictionary contains the gradients of the parameters.
+        Returns:
+            dictionary of the updated parameters.
+        '''
+        L = len(parameters) // 2 
+
+        for l in range(L):
+
+            self.Acc["dW" + str(l+1)] += grads['dW' + str(l+1)]**2
+            self.Acc["db" + str(l+1)] += grads['db' + str(l+1)]**2
+
+            parameters["W" + str(l+1)] -= self.learning_rate * grads['dW' + str(l+1)] / (np.sqrt(self.Acc["dW" + str(l+1)]) + self.eps)
+            parameters["b" + str(l+1)] -= self.learning_rate * grads['db' + str(l+1)] / (np.sqrt(self.Acc["db" + str(l+1)]) + self.eps)
 
         return parameters

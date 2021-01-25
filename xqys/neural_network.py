@@ -3,9 +3,9 @@ import math
 import matplotlib.pyplot as plt
 import pickle
 
-from nn.activation_functions import get_activation, get_grad_activation
-from nn.cost_functions import compute_cost, grad_cost, compute_reg_cost
-from nn.metrics import compute_score
+from xqys.activation_functions import get_activation, activation_backward
+from xqys.cost_functions import compute_cost, grad_cost, compute_reg_cost
+from xqys.metrics import compute_score
 
 
 class NeuralNet:
@@ -27,6 +27,8 @@ class NeuralNet:
             units: number of neurons.
             activation: the activation function.
             L2_regularization_lambda: the lambda if wanted to use L2 reg at this layer
+
+        The activation functions supported are (sigmoid, relu, prelu, elu, tanh, arctan, identity, binary-step)
         '''
         self.layers_dims.append(units)
         self.activations.append(activation)
@@ -67,7 +69,7 @@ class NeuralNet:
         '''
         caches = []
         A = X
-        # contains W and b for all layers
+
         num_layers = len(self.parameters) // 2
         
         
@@ -95,8 +97,7 @@ class NeuralNet:
         A_prev, W, b, Z = cache
         m = A_prev.shape[1]
         
-        dZ = get_grad_activation(dA, Z, activation)
-        # dZ = ( get_grad_activation(dA, Z, activation) / (1.* m) )
+        dZ = activation_backward(dA, Z, activation)
         
         reg_term = 0
         if L2_reg_lambda:
@@ -126,9 +127,7 @@ class NeuralNet:
         grads = {}
         num_layers = len(caches)
         m = AL.shape[1]
-        # Y = Y.reshape(AL.shape)
         
-        # dAL = ( grad_cost(AL, Y, self.loss) / (1.*m) )
         dAL = grad_cost(AL, Y, self.loss)
 
         grads[f'dA{num_layers}'] = dAL
@@ -183,6 +182,13 @@ class NeuralNet:
             initializer: initializer object.
             loss: a string of the loss function to use.
             metrics: a string of the metrics function to use.
+
+        The loss functions supported are:
+        (binary-cross-entropy, categorical-cross-entropy, mean-squared-error, hinge)
+        
+        The metrics supported are:
+        (accuracy, mean-absolute-error, mean-squared-error, root-mean-square-error, 
+        precision, recall, f1-score)
         '''
         self.optimizer = optimizer
         self.initializer = initializer
@@ -223,7 +229,6 @@ class NeuralNet:
 
 
                 self.parameters = self.optimizer.update_parameters(self.parameters, grads)
-                # self.parameters = self.optimizer.update_parameters(self.parameters, grads)
 
             avg_cost = total_cost / (1.*m)
             self.costs.append(avg_cost)

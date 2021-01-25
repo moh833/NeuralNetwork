@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import gzip
 
 
-data_path = 'D:/Content_2/NN from scratch/NeuralNetworks/data/MNIST'
+data_path = 'D:/Content_2/NN_from_scratch/NeuralNetworks/data/MNIST'
 
 
 def load_images(path):

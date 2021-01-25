@@ -1,18 +1,16 @@
-.. Neural Network documentation master file, created by
-   sphinx-quickstart on Sun Jan 24 23:31:21 2021.
+.. XQYS documentation master file, created by
+   sphinx-quickstart on Mon Jan 25 05:29:11 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Neural Network's documentation!
-==========================================
+Welcome to XQYS's documentation!
+================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    modules
-
-
 
 Indices and tables
 ==================

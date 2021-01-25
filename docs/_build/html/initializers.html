@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>initializers module &#8212; Neural Network  documentation</title>
+    <title>initializers module &#8212; XQYS  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -32,103 +32,8 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="module-initializers">
-<span id="initializers-module"></span><h1>initializers module<a class="headerlink" href="#module-initializers" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt id="initializers.He">
-<em class="property">class </em><code class="sig-prename descclassname">initializers.</code><code class="sig-name descname">He</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#initializers.He" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Initializer generates numpy arrays initialized using He normal.</p>
-<dl class="py method">
-<dt id="initializers.He.initialize_parameters">
-<code class="sig-name descname">initialize_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layers_dims</span></em><span class="sig-paren">)</span><a class="headerlink" href="#initializers.He.initialize_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>initializes parameters.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>layers_dims: list of the dimentions of the neural network.</p>
-</dd>
-<dt>Returns:</dt><dd><p>dictionary of the initialized parameters.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="initializers.Ones">
-<em class="property">class </em><code class="sig-prename descclassname">initializers.</code><code class="sig-name descname">Ones</code><a class="headerlink" href="#initializers.Ones" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Initializer generates numpy arrays initialized with ones.</p>
-<dl class="py method">
-<dt id="initializers.Ones.initialize_parameters">
-<em class="property">static </em><code class="sig-name descname">initialize_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layers_dims</span></em><span class="sig-paren">)</span><a class="headerlink" href="#initializers.Ones.initialize_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>initializes parameters.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>layers_dims: list of the dimentions of the neural network.</p>
-</dd>
-<dt>Returns:</dt><dd><p>dictionary of the initialized parameters.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="initializers.RandomNormal">
-<em class="property">class </em><code class="sig-prename descclassname">initializers.</code><code class="sig-name descname">RandomNormal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mean</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">stddev</span><span class="o">=</span><span class="default_value">0.05</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#initializers.RandomNormal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Initializer generates numpy arrays with normal distribution.</p>
-<dl class="py method">
-<dt id="initializers.RandomNormal.initialize_parameters">
-<code class="sig-name descname">initialize_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layers_dims</span></em><span class="sig-paren">)</span><a class="headerlink" href="#initializers.RandomNormal.initialize_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>initializes parameters.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>layers_dims: list of the dimentions of the neural network.</p>
-</dd>
-<dt>Returns:</dt><dd><p>dictionary of the initialized parameters.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="initializers.RandomUniform">
-<em class="property">class </em><code class="sig-prename descclassname">initializers.</code><code class="sig-name descname">RandomUniform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">minval</span><span class="o">=</span><span class="default_value">- 0.05</span></em>, <em class="sig-param"><span class="n">maxval</span><span class="o">=</span><span class="default_value">0.05</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#initializers.RandomUniform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Initializer generates numpy arrays with uniform distribution.</p>
-<dl class="py method">
-<dt id="initializers.RandomUniform.initialize_parameters">
-<code class="sig-name descname">initialize_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layers_dims</span></em><span class="sig-paren">)</span><a class="headerlink" href="#initializers.RandomUniform.initialize_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>initializes parameters.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>layers_dims: list of the dimentions of the neural network.</p>
-</dd>
-<dt>Returns:</dt><dd><p>dictionary of the initialized parameters.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="initializers.Zeros">
-<em class="property">class </em><code class="sig-prename descclassname">initializers.</code><code class="sig-name descname">Zeros</code><a class="headerlink" href="#initializers.Zeros" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Initializer generates numpy arrays initialized with zeros.</p>
-<dl class="py method">
-<dt id="initializers.Zeros.initialize_parameters">
-<em class="property">static </em><code class="sig-name descname">initialize_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layers_dims</span></em><span class="sig-paren">)</span><a class="headerlink" href="#initializers.Zeros.initialize_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>initializes parameters.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>layers_dims: list of the dimentions of the neural network.</p>
-</dd>
-<dt>Returns:</dt><dd><p>dictionary of the initialized parameters.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="initializers-module">
+<h1>initializers module<a class="headerlink" href="#initializers-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -138,7 +43,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Neural Network</a></h1>
+<h1 class="logo"><a href="index.html">XQYS</a></h1>
 
 
 
@@ -150,7 +55,7 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nn</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">xqys</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="activation_functions.html">activation_functions module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cost_functions.html">cost_functions module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">initializers module</a></li>
@@ -166,7 +71,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-  <li><a href="modules.html">nn</a><ul>
+  <li><a href="modules.html">xqys</a><ul>
       <li>Previous: <a href="cost_functions.html" title="previous chapter">cost_functions module</a></li>
       <li>Next: <a href="metrics.html" title="next chapter">metrics module</a></li>
   </ul></li>

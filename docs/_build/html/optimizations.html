@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>optimizations module &#8212; Neural Network  documentation</title>
+    <title>optimizations module &#8212; XQYS  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -32,93 +32,8 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="module-optimizations">
-<span id="optimizations-module"></span><h1>optimizations module<a class="headerlink" href="#module-optimizations" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt id="optimizations.Adam">
-<em class="property">class </em><code class="sig-prename descclassname">optimizations.</code><code class="sig-name descname">Adam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">learning_rate</span></em>, <em class="sig-param"><span class="n">beta1</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">beta2</span><span class="o">=</span><span class="default_value">0.999</span></em>, <em class="sig-param"><span class="n">epsilon</span><span class="o">=</span><span class="default_value">1e-08</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Adam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Optimizer that implements the Adam algorithm.</p>
-<dl class="py method">
-<dt id="optimizations.Adam.initialize">
-<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Adam.initialize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initializes the v and s for Adam optimizer.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="optimizations.Adam.update_parameters">
-<code class="sig-name descname">update_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">grads</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Adam.update_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates parameters using Adam.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.
-grads: dictionary contains the gradients of the parameters.</p>
-</dd>
-<dt>Returns:</dt><dd><p>dictionary of the updated parameters.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="optimizations.GradientDescent">
-<em class="property">class </em><code class="sig-prename descclassname">optimizations.</code><code class="sig-name descname">GradientDescent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">learning_rate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.GradientDescent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Gradient descent optimizer.</p>
-<dl class="py method">
-<dt id="optimizations.GradientDescent.initialize">
-<em class="property">static </em><code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.GradientDescent.initialize" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="optimizations.GradientDescent.update_parameters">
-<code class="sig-name descname">update_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">grads</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.GradientDescent.update_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates parameters using gradient descent.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.
-grads: dictionary contains the gradients of the parameters.</p>
-</dd>
-<dt>Returns:</dt><dd><p>dictionary of the updated parameters.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="optimizations.Momentum">
-<em class="property">class </em><code class="sig-prename descclassname">optimizations.</code><code class="sig-name descname">Momentum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">learning_rate</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">0.9</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Momentum" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Gradient descent (with momentum) optimizer.</p>
-<dl class="py method">
-<dt id="optimizations.Momentum.initialize">
-<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Momentum.initialize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initializes the velocity.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="optimizations.Momentum.update_parameters">
-<code class="sig-name descname">update_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">grads</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Momentum.update_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates parameters using gradient descent (with momentum).</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.
-grads: dictionary contains the gradients of the parameters.</p>
-</dd>
-<dt>Returns:</dt><dd><p>dictionary of the updated parameters.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="optimizations-module">
+<h1>optimizations module<a class="headerlink" href="#optimizations-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -128,7 +43,7 @@ grads: dictionary contains the gradients of the parameters.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Neural Network</a></h1>
+<h1 class="logo"><a href="index.html">XQYS</a></h1>
 
 
 
@@ -140,7 +55,7 @@ grads: dictionary contains the gradients of the parameters.</p>
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">nn</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">xqys</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="activation_functions.html">activation_functions module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cost_functions.html">cost_functions module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="initializers.html">initializers module</a></li>
@@ -156,7 +71,7 @@ grads: dictionary contains the gradients of the parameters.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-  <li><a href="modules.html">nn</a><ul>
+  <li><a href="modules.html">xqys</a><ul>
       <li>Previous: <a href="neural_network.html" title="previous chapter">neural_network module</a></li>
       <li>Next: <a href="preprocessing.html" title="next chapter">preprocessing module</a></li>
   </ul></li>

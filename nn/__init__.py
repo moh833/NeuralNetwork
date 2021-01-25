@@ -1,1 +1,0 @@
-from nn.neural_network import NeuralNet
