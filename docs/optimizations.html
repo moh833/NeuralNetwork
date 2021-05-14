@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>optimizations module &#8212; XQYS  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="preprocessing module" href="preprocessing.html" />
+    <link rel="prev" title="neural_network module" href="neural_network.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-optimizations">
+<span id="optimizations-module"></span><h1>optimizations module<a class="headerlink" href="#module-optimizations" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="optimizations.Adagrad">
+<em class="property">class </em><code class="sig-prename descclassname">optimizations.</code><code class="sig-name descname">Adagrad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">learning_rate</span></em>, <em class="sig-param"><span class="n">eps</span><span class="o">=</span><span class="default_value">1e-06</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Adagrad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Adagrad optimizer.</p>
+<dl class="py method">
+<dt id="optimizations.Adagrad.initalization">
+<code class="sig-name descname">initalization</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Adagrad.initalization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the accumulator.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimizations.Adagrad.update_parameters">
+<code class="sig-name descname">update_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">grads</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Adagrad.update_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates parameters using Adagrad.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.
+grads: dictionary contains the gradients of the parameters.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dictionary of the updated parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="optimizations.Adam">
+<em class="property">class </em><code class="sig-prename descclassname">optimizations.</code><code class="sig-name descname">Adam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">learning_rate</span></em>, <em class="sig-param"><span class="n">beta1</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">beta2</span><span class="o">=</span><span class="default_value">0.999</span></em>, <em class="sig-param"><span class="n">epsilon</span><span class="o">=</span><span class="default_value">1e-08</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Adam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Optimizer that implements the Adam algorithm.</p>
+<dl class="py method">
+<dt id="optimizations.Adam.initialize">
+<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Adam.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the v and s for Adam optimizer.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimizations.Adam.update_parameters">
+<code class="sig-name descname">update_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">grads</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Adam.update_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates parameters using Adam.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.
+grads: dictionary contains the gradients of the parameters.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dictionary of the updated parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="optimizations.GradientDescent">
+<em class="property">class </em><code class="sig-prename descclassname">optimizations.</code><code class="sig-name descname">GradientDescent</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">learning_rate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.GradientDescent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Gradient descent optimizer.</p>
+<dl class="py method">
+<dt id="optimizations.GradientDescent.initialize">
+<em class="property">static </em><code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.GradientDescent.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="optimizations.GradientDescent.update_parameters">
+<code class="sig-name descname">update_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">grads</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.GradientDescent.update_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates parameters using gradient descent.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.
+grads: dictionary contains the gradients of the parameters.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dictionary of the updated parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="optimizations.Momentum">
+<em class="property">class </em><code class="sig-prename descclassname">optimizations.</code><code class="sig-name descname">Momentum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">learning_rate</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">0.9</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Momentum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Gradient descent (with momentum) optimizer.</p>
+<dl class="py method">
+<dt id="optimizations.Momentum.initialize">
+<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Momentum.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the velocity.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimizations.Momentum.update_parameters">
+<code class="sig-name descname">update_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">grads</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.Momentum.update_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates parameters using gradient descent (with momentum).</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.
+grads: dictionary contains the gradients of the parameters.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dictionary of the updated parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="optimizations.RMSprop">
+<em class="property">class </em><code class="sig-prename descclassname">optimizations.</code><code class="sig-name descname">RMSprop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">learning_rate</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">0.9</span></em>, <em class="sig-param"><span class="n">eps</span><span class="o">=</span><span class="default_value">1e-06</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.RMSprop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>RMSprop optimizer.</p>
+<dl class="py method">
+<dt id="optimizations.RMSprop.initialize">
+<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.RMSprop.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the velocity.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimizations.RMSprop.update_parameters">
+<code class="sig-name descname">update_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">grads</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizations.RMSprop.update_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates parameters using RMSprop.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>parameters: dictionary of the parameters.
+grads: dictionary contains the gradients of the parameters.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dictionary of the updated parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">XQYS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">xqys</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="activation_functions.html">activation_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cost_functions.html">cost_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="initializers.html">initializers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">metrics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neural_network.html">neural_network module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">optimizations module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">preprocessing module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">xqys</a><ul>
+      <li>Previous: <a href="neural_network.html" title="previous chapter">neural_network module</a></li>
+      <li>Next: <a href="preprocessing.html" title="next chapter">preprocessing module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Mohamed Medhat.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/optimizations.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

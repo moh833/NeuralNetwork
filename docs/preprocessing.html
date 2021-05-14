@@ -31,8 +31,56 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="preprocessing-module">
-<h1>preprocessing module<a class="headerlink" href="#preprocessing-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-preprocessing">
+<span id="preprocessing-module"></span><h1>preprocessing module<a class="headerlink" href="#module-preprocessing" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="preprocessing.load">
+<code class="sig-prename descclassname">preprocessing.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads data as numpy array from a provided files.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>file: the file to load the data from.</p>
+</dd>
+<dt>Returns:</dt><dd><p>The data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="preprocessing.rescalling">
+<code class="sig-prename descclassname">preprocessing.</code><code class="sig-name descname">rescalling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">scale</span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.rescalling" title="Permalink to this definition">¶</a></dt>
+<dd><p>rescalls the data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>scale:</p>
+</dd>
+<dt>Returns:</dt><dd><p>The data after scalling.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="preprocessing.save">
+<code class="sig-prename descclassname">preprocessing.</code><code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the date to a provided file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>data: the data to be saved.
+file: the file to save the data to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="preprocessing.split_train_test">
+<code class="sig-prename descclassname">preprocessing.</code><code class="sig-name descname">split_train_test</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">test_ratio</span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocessing.split_train_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits data to train and test.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>data: data to be splitted.
+test_ratio: ratio of test data.</p>
+</dd>
+<dt>Returns:</dt><dd><p>train data, test data as a tuple.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

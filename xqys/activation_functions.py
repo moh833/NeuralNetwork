@@ -36,13 +36,6 @@ def identity(Z):
 def identity_backward(dA, Z):
     return dA
 
-def binary_step(Z):
-    return Z >= 1
-
-def binary_step_backward(dA, Z):
-    # cant be used for learning
-    return np.zeros(Z.shape)
-
 def tanh(Z):
     return np.tanh(Z)
 
@@ -85,8 +78,6 @@ def get_activation(Z, name):
         return softmax(Z)
     elif name == 'identity':
         return identity(Z)
-    elif name == 'binary-step':
-        return binary_step(Z)
     elif name == 'tanh':
         return tanh(Z)
     elif name == 'arctan':
@@ -117,8 +108,6 @@ def activation_backward(dA, Z, name):
         return softmax_backward(dA, Z)
     elif name == 'identity':
         return identity_backward(dA, Z)
-    elif name == 'binary-step':
-        return binary_step_backward(dA, Z)
     elif name == 'tanh':
         return tanh_backward(dA, Z)
     elif name == 'arctan':

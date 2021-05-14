@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>neural_network module &#8212; XQYS  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="optimizations module" href="optimizations.html" />
+    <link rel="prev" title="metrics module" href="metrics.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-neural_network">
+<span id="neural-network-module"></span><h1>neural_network module<a class="headerlink" href="#module-neural_network" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="neural_network.NeuralNet">
+<em class="property">class </em><code class="sig-prename descclassname">neural_network.</code><code class="sig-name descname">NeuralNet</code><a class="headerlink" href="#neural_network.NeuralNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class implements a Neural Network.</p>
+<dl class="py method">
+<dt id="neural_network.NeuralNet.add_dense_layer">
+<code class="sig-name descname">add_dense_layer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">units</span></em>, <em class="sig-param"><span class="n">activation</span></em>, <em class="sig-param"><span class="n">L2_regularization_lambda</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.NeuralNet.add_dense_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>addes dense layer.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>units: number of neurons.
+activation: the activation function.
+L2_regularization_lambda: the lambda if wanted to use L2 reg at this layer</p>
+</dd>
+</dl>
+<p>The activation functions supported are (sigmoid, relu, prelu, elu, tanh, arctan, identity, binary-step)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="neural_network.NeuralNet.compile">
+<code class="sig-name descname">compile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">optimizer</span></em>, <em class="sig-param"><span class="n">initializer</span></em>, <em class="sig-param"><span class="n">loss</span></em>, <em class="sig-param"><span class="n">metrics</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.NeuralNet.compile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the model for training(optimizer, initializer, loss function and metrics).</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>optimizer: optimizer object.
+initializer: initializer object.
+loss: a string of the loss function to use.
+metrics: a string of the metrics function to use.</p>
+</dd>
+</dl>
+<p>The loss functions supported are:
+(binary-cross-entropy, categorical-cross-entropy, mean-squared-error, hinge)</p>
+<p>The metrics supported are:
+(accuracy, mean-absolute-error, mean-squared-error, root-mean-square-error, 
+precision, recall, f1-score)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="neural_network.NeuralNet.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.NeuralNet.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluates the network.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: the features data as numpy array.
+y: true labels vector.</p>
+</dd>
+<dt>Returns:</dt><dd><p>average cost:
+accuracy:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="neural_network.NeuralNet.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">batch_size</span></em>, <em class="sig-param"><span class="n">epochs</span></em>, <em class="sig-param"><span class="n">shuffle</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">print_each_n</span><span class="o">=</span><span class="default_value">50</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.NeuralNet.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: the features data as numpy array.
+y: true labels vector.
+batchsize: size of a batch.
+epochs: number of iterations over the dataset.
+shuffle: shuffle the data if true.
+seed:
+print_each_n: print the cost each n epoch.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="neural_network.NeuralNet.iterate_minibatches">
+<em class="property">static </em><code class="sig-name descname">iterate_minibatches</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">Y</span></em>, <em class="sig-param"><span class="n">batchsize</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">shuffle</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.NeuralNet.iterate_minibatches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits the data into batches.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: the features data as numpy array.
+Y: true labels vector.
+batchsize: size of a batch.
+seed: the seed.
+shuffle: shuffles the data if true.</p>
+</dd>
+<dt>Returns:</dt><dd><p>a generator that yeilds batches as tuple of numpy arrays (features, labels)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="neural_network.NeuralNet.layer_backward">
+<em class="property">static </em><code class="sig-name descname">layer_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dA</span></em>, <em class="sig-param"><span class="n">cache</span></em>, <em class="sig-param"><span class="n">activation</span></em>, <em class="sig-param"><span class="n">L2_reg_lambda</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.NeuralNet.layer_backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements back propagation for one layer.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>dA: the derivative of the post activation.
+cache: tuple of values (A_prev, W, b)
+activation: activation of the current layer.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dA_prev: gradient of the cost with respect to the post activatio of the last layer
+dW: gradient of the cost with respect to the weights of the current layer.
+db: gradient of the cost with respect to the biases of the current layer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="neural_network.NeuralNet.layer_forward">
+<em class="property">static </em><code class="sig-name descname">layer_forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A_prev</span></em>, <em class="sig-param"><span class="n">W</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">activation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.NeuralNet.layer_forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements forward propagation for one layer.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>A_prev: Post activation of the previous layer.
+W: weights of the current layer.
+b: biases of the current layer.
+activation: activation of the current layer.</p>
+</dd>
+<dt>Returns:</dt><dd><p>A: Post activation of the current layer.
+caches: list of caches for back propagation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="neural_network.NeuralNet.model_backward">
+<code class="sig-name descname">model_backward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">AL</span></em>, <em class="sig-param"><span class="n">Y</span></em>, <em class="sig-param"><span class="n">caches</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.NeuralNet.model_backward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement the backward propagation the entire network.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>AL: probability vector of label predictions.
+Y: true labels vector.
+caches: list of caches.</p>
+</dd>
+<dt>Returns:</dt><dd><p>grads: dictionary with the gradients</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="neural_network.NeuralNet.model_forward">
+<code class="sig-name descname">model_forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.NeuralNet.model_forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement forward propagation for the entire network.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: data as numpy array of size (features, number of examples).</p>
+</dd>
+<dt>Returns:</dt><dd><p>AL: last post-activation value
+caches: list of caches for back propagation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="neural_network.NeuralNet.plot_cost">
+<code class="sig-name descname">plot_cost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.NeuralNet.plot_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws the cost per epochs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="neural_network.NeuralNet.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.NeuralNet.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the labels for the provided features.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>X: the features data as numpy array.</p>
+</dd>
+<dt>Returns:</dt><dd><p>y_pred: predicted labels.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="neural_network.NeuralNet.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.NeuralNet.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the model to a provided file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>file: the file to save the model to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="neural_network.load_model">
+<code class="sig-prename descclassname">neural_network.</code><code class="sig-name descname">load_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file</span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network.load_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the model from a provided files.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>file: the file to load the model from.</p>
+</dd>
+<dt>Returns:</dt><dd><p>The model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">XQYS</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">xqys</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="activation_functions.html">activation_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cost_functions.html">cost_functions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="initializers.html">initializers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">metrics module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">neural_network module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizations.html">optimizations module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preprocessing.html">preprocessing module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">xqys</a><ul>
+      <li>Previous: <a href="metrics.html" title="previous chapter">metrics module</a></li>
+      <li>Next: <a href="optimizations.html" title="next chapter">optimizations module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Mohamed Medhat.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/neural_network.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -17,7 +17,7 @@ class Zeros:
         parameters = {}
         
         for l in range(1, num_layers):
-            parameters[f'W{l}'] = np.zeros(layers_dims[l], layers_dims[l-1])
+            parameters[f'W{l}'] = np.zeros((layers_dims[l], layers_dims[l-1]))
             parameters[f'b{l}'] = np.zeros((layers_dims[l], 1))
             
             assert(parameters[f'W{l}'].shape == (layers_dims[l], layers_dims[l-1]))
@@ -42,7 +42,7 @@ class Ones:
         parameters = {}
         
         for l in range(1, num_layers):
-            parameters[f'W{l}'] = np.ones(layers_dims[l], layers_dims[l-1])
+            parameters[f'W{l}'] = np.ones((layers_dims[l], layers_dims[l-1]))
             parameters[f'b{l}'] = np.zeros((layers_dims[l], 1))
             
             assert(parameters[f'W{l}'].shape == (layers_dims[l], layers_dims[l-1]))
